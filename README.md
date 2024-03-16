@@ -1,14 +1,14 @@
-# CFPI
+# RG-LCD
 
-This is the repository that contains source code for the [CFPO website](https://cfpi-icml23.github.io).
+This is the repository that contains source code for the [RG-LCD website](https://cfpi-icml23.github.io).
 
-If you find CFPI useful for your work please cite:
+If you find RG-LCD useful for your work please cite:
 ```
-@misc{li2022offline,
-    title={Offline Reinforcement Learning with Closed-Form Policy Improvement Operators},
-    author={Jiachen Li and Edwin Zhang and Ming Yin and Qinxun Bai and Yu-Xiang Wang and William Yang Wang},
-    journal={ICML},
-    year={2023},
+@misc{li2024rglcd,
+    title={Reward Guided Latent Consistency Distillation},
+    author={Jiachen Li and Weixi Feng and Wenhu Chen and William Yang Wang},
+    journal={ARXIV},
+    year={2024},
 }
 ```
 

@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-    content="We proposed closed-form policy improvement operators and modeled the behavior policies as a Gaussian Mixture.">
-  <meta name="keywords" content=" Offline Reinforcement Learning algorithms,Deep Reinforcement Learning">
+    content="We proposed Reward Guided Latent Consistency Distillation.">
+  <meta name="keywords" content=" Text-to-Image, Consistency Model, Learning from Human/AI Feedback">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Offline Reinforcement Learning with Closed-Form Policy Improvement Operators
+  <title>Reward Guided Latent Consistency Distillation
   </title>
   <!-- custom fonts -->
   <link rel="stylesheet" type="text/css"
@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" type="ico" href="./static/favicon.ico">
+  <link rel="icon" type="svg" href="./static/fire.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -32,60 +32,23 @@
 
 <body>
 
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-    <div class="navbar-menu">
-      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            More Research
-          </a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="https://sites.google.com/eng.ucsd.edu/multi-task-batch-reinforcement/home">
-              Metric Learning Offline RL
-            </a>
-            <a class="navbar-item" href="https://arxiv.org/abs/2110.12081.pdf">
-              Off-policy RL with Optimism and DICE
-            </a>
-            <a class="navbar-item" href="https://lcd.eddie.win">
-              Language Control Diffusion
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </nav>
-
-
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Offline Reinforcement Learning with Closed-Form Policy Improvement
-              Operators
+            <h1 class="title is-1 publication-title">Reward Guided Latent Consistency Distillation
             </h1>
 
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://sites.google.com/view/jiachenli/home">Jiachen Li</a><sup>*</sup><sup>1</sup>,</span>
-              <span class="author-block">
-                <a href="https://eddie.win">Edwin Zhang</a><sup>*</sup><sup>1,3</sup>,</span>
-              <span class="author-block">
-                <a href="https://mingyin0312.github.io/">Ming Yin</a><sup>1</sup>,
+                <a href="https://sites.google.com/view/jiachenli/home">Jiachen Li</a><sup>1</sup>
               </span>
               <span class="author-block">
-                <a href="https://www.cs.bu.edu/groups/ivc/qinxun/">Qinxun Bai</a><sup>2</sup>,
+                <a href="https://weixi-feng.github.io/">Weixi Feng</a><sup>1</sup>,
               </span>
               <span class="author-block">
-                <a href="https://sites.cs.ucsb.edu/~yuxiangw/">Yu-Xiang Wang</a><sup>1</sup>,
+                <a href="https://wenhuchen.github.io//">Wenhu Chen</a><sup>2</sup>,
               </span>
               <span class="author-block">
                 <a href="https://sites.cs.ucsb.edu/~william/">William Yang Wang</a><sup>1</sup>
@@ -95,11 +58,7 @@
 
             <div class="is-size-5 publication-authors" style="margin-top: 15px;">
               <span class="author-block"><sup>1</sup>UC Santa Barbara,</span>
-              <span class="author-block"><sup>2</sup>Horizon Robotics,</span>
-              <span class="author-block"><sup>3</sup>Harvard University</span>
-            </div>
-            <div class="publication-authors">
-              <span class="author-block"><sup>*</sup>Equal Contribution</span>
+              <span class="author-block"><sup>2</sup>University of Waterloo,</span>
             </div>
 
             <div class="column has-text-centered">
@@ -154,8 +113,13 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <img src="./static/images/1.png" alt="" srcset="">
-
+        <img src="./static/images/teaser-sd-2-1-base-horizontal.jpg" alt="" srcset="">
+        <h2 class="subtitle has-text-centered">
+          <span class="dnerf"> Generation of our RG-LCM (<a href="https://github.com/tgxs002/HPSv2/tree/master" target="_blank">HPSv2.1</a>) distilled from <a href="https://huggingface.co/stabilityai/stable-diffusion-2-1-base" target="_blank">Stable Diffusion v2-1-base</a> </span>
+        </h2>
+      </div>
+      <div class="hero-body">
+        <img src="./static/images/teaser-4p.jpg" alt="" srcset="">
         <h2 class="subtitle has-text-centered">
           <span class="dnerf">Closed-form policy improvement operators</span> enable stable offline policy improvement.
         </h2>
@@ -163,38 +127,29 @@
     </div>
   </section>
 
-
   <section class="hero is-light is-small">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div id="results-carousel" class="carousel results-carousel">
           <div class="item">
-            <img src="./static/images/figures/iterative_pac/antmaze-large-diverse-v0.png" style="width: auto;" alt="">j
+            <img src="./static/images/beautiful_oil.png" style="width: auto;" alt="">j
           </div>
           <div class="item">
-            <img src="./static/images/figures/iterative_pac/antmaze-large-play-v0.png" style="width: auto;" alt="">j
+            <img src="./static/images/girl.png" style="width: auto;" alt="">j
           </div>
           <div class="item">
-            <img src="./static/images/figures/iterative_pac/antmaze-medium-diverse-v0.png" style="width: auto;" alt="">
+            <img src="./static/images/unicorn.png" style="width: auto;" alt="">
           </div>
           <div class="item">
-            <img src="./static/images/figures/iterative_pac/antmaze-medium-play-v0.png" style="width: auto;" alt="">
+            <img src="./static/images/tea_cup.png" style="width: auto;" alt="">
           </div>
           <div class="item">
-            <img src="./static/images/figures/iterative_pac/antmaze-umaze-diverse-v0.png" style="width: auto;" alt="">
+            <img src="./static/images/sculpture.png" style="width: auto;" alt="">
           </div>
           <div class="item">
-            <img src="./static/images/figures/iterative_pac/antmaze-umaze-v0.png" style="width: auto;" alt="">
+            <img src="./static/images/pirate_ship.png" style="width: auto;" alt="">
           </div>
-
         </div>
-      </div>
-      <div class="container is-max-desktop">
-        <img style="border: 1px solid black; padding: 10px; background: white; margin-top: 40px; border-radius: 10px;"
-          src="./static/images/2.png" width="100%" alt="">
-      </div>
-      <div class="has-text-centered" style="margin: 10px 0">
-        Our method's offline training results on AntMaze. Shaded area denotes one standard deviation.
       </div>
     </div>
 
@@ -209,105 +164,58 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Behavior constrained policy optimization has been demonstrated to be a successful paradigm for tackling
-              Offline
-              Reinforcement Learning. By exploiting historical transitions, a policy is trained to maximize a learned
-              value function
-              while constrained by the behavior policy to avoid a significant distributional shift. </p>
-            <p>
-              In this project, we
-              propose <span class="dnerf"> closed-form policy improvement operators</span>. We make the novel
-              observation
-              that the behavior constraint
-              naturally motivates
-              the use of first-order Taylor approximation, leading to a linear approximation of the policy objective.
+              Latent Consistency Distillation (LCD) has emerged as a promising paradigm for efficient text-to-image synthesis.
+              By distilling a latent consistency model (LCM) from a pre-trained teacher latent diffusion model (LDM),
+              LCD facilitates the generation of high-fidelity images within merely 2 to 4 inference steps.
+              However, the LCM's efficient inference is obtained at the cost of the sample quality.
+              In this paper, we propose compensating the quality loss by aligning LCM's output with human preference during training.
+              Specifically, we introduce Reward Guided LCD (RG-LCD), which integrates feedback from a reward model (RM) into the LCD
+              process by augmenting the original LCD loss with the objective of maximizing the reward associated with LCM's single-step generation.
+              As validated through human evaluation, when trained with the feedback of a good RM,
+              the 2-step generations from our RG-LCM are favored by humans over the 50-step DDIM samples from the teacher LDM,
+              representing a 25 times inference acceleration without quality loss.
             </p>
             <p>
-              Additionally, as
-              practical datasets are usually collected by heterogeneous policies, we model the behavior policies as a
-              Gaussian Mixture
-              and overcome the induced optimization difficulties by leveraging the LogSumExp's lower bound and Jensen's
-              Inequality,
-              giving rise to a closed-form policy improvement operator.</p>
-            <p>
-              We instantiate both one-step and iterative
-              offline RL
-              algorithms with our novel policy improvement operators and empirically demonstrate {their} effectiveness
-              over
-              state-of-the-art algorithms on the standard D4RL benchmark.
-            </p>
+            As directly optimizing towards differentiable RMs can suffer from over-optimization,
+            we overcome this difficulty by proposing the use of a latent proxy RM (LRM).
+            This novel component serves as an intermediary, connecting our LCM with the RM.
+            Empirically, we demonstrate that incorporating the LRM into our RG-LCD successfully avoids high-frequency noise in the generated images,
+            contributing to both improved FID on MS-COCO and a higher HPSv2.1 score on HPSv2's test set, surpassing those achieved by the baseline LCM.
+          </p>
           </div>
         </div>
       </div>
       <!--/ Abstract. -->
-
-      <!-- Paper video. -->
-      <div class="columns is-centered has-text-centered">
-        <div class="column" style="height: 100%">
-          <h2 class="title is-3">Video</h2>
-          <div class="publication-video h750">
-
-            <iframe
-              src="https://slideslive.com/embed/presentation/38993793?auto_load=true&amp;auto_play=false&amp;zoom_ratio=&amp;disable_fullscreen=false&amp;locale=en&amp;vertical_enabled=true&amp;vertical_enabled_on_mobile=false&amp;allow_hidden_controls_when_paused=true&amp;fit_to_viewport=true&amp;custom_user_id=&amp;user_uuid=df1abce8-48c1-4383-828e-a2574e02127f"
-              scrolling="no" frameborder="0"
-              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-top-navigation"
-              allow="autoplay; fullscreen" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""
-              class="h750" style="margin: 0px auto; display: block; width: 100%;"></iframe>
-            <!-- <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0" frameborder="0"
-              allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
-          </div>
-        </div>
-      </div>
-      <!--/ Paper video. -->
     </div>
   </section>
 
   <section class="section">
     <div class="container is-max-desktop">
 
-      <!-- Concurrent Work. -->
+      <!-- Training Pipeline. -->
       <div class="columns is-centered">
         <div class="column is-full-width">
-          <h2 class="title is-3">Statistical Evaluation</h2>
+          <h2 class="title is-3">Overview of Training Pipeline</h2>
 
-          <img src="./static/images/figures/score_dist.png" alt="" srcset="">
-          <img src="./static/images/figures/reliable_eval.png" alt="" srcset="">
+          <img src="./static/images/rg-lcd-framework.jpg" alt="" srcset="">
           <div class="content has-text-justified">
-            <p>Here, I-MG (MG-PAC) and I-SG (SG-PAC) refer to our method.</p>
             <p>
-              <a href="https://arxiv.org/abs/2108.13264" target="_blank">Performance profiles</a> (score distributions)
-              for all methods on the 9 tasks from the D4RL MuJoCo Gym
-              domain.
-              The average score is calculated by averaging all runs within one task. Each task contains 10 seeds, and
-              each seed
-              evaluates
-              for 100 episodes. Shaded area denotes 95% confidence bands based on percentile bootstrap and stratified
-              sampling. The η value where the curves intersect with the dashed horizontal line y = 0.5 corresponds
-              to the median,
-              while the area under the performance curves corresponds to the mean.
-            </p>
-            <p>
-              To demonstrate the superiority of our methods over the baselines and provide reliable evaluation results,
-              we follow the
-              evaluation protocols proposed in <a href="https://arxiv.org/abs/2108.13264" target="_blank">(Agarwal et
-                al., 2021)</a>.
-              Specifically, we adopt the
-              evaluation methods for all methods with N tasks × N seeds runs in total.
-              Evaluation results demonstrate that our method outperforms the baseline methods by asignificant margin
-              based
-              on all four reliable metrics.
+              Our RG-LCD framework consists of three main components: a teacher LDM, a student LCM, and a Reward Model (RM).
+              The teacher LDM is pre-trained on a large-scale dataset and serves as the source of the ground-truth latent codes.
+              The student LCM is trained to mimic the teacher LDM's generation process by distilling the teacher's latent codes.
+              During training, the LCM is optimized to maximize the reward predicted by the RM.
             </p>
           </div>
         </div>
       </div>
-      <!--/ Concurrent Work. -->
+      <!--/ Training Pipeline. -->
 
       <div class="container is-max-desktop">
 
-        <!-- Concurrent Work. -->
+        <!-- Acknowledgement. -->
         <div class="columns is-centered">
           <div class="column is-full-width">
-            <h2 class="title is-3">Related Work</h2>
+            <h2 class="title is-3">Acknowledgement</h2>
 
             <div class="content has-text-justified">
               <p>
@@ -315,29 +223,29 @@
               </p>
 
               <p>
-                <a href="https://github.com/microsoft/oac-explore">Optimistic Actor Critic</a> gave inspiration to our
+                <a href="https://github.com/luosiallen/latent-consistency-model">Latent Consistency Model</a> gave inspiration to our
                 method,
-                <a href="https://github.com/Farama-Foundation/D4RL">D4RL</a>
-                provides the dataset and benchmark for evaluating the performance of our agent, and
-                <a href="https://github.com/rail-berkeley/rlkit/">RLkit</a> offered a strong RL framework
+                <a href="https://github.com/tgxs002/HPSv2">HPSv2.1</a>
+                provides great reward models, and
+                <a href="https://github.com/huggingface/diffusers/">Diffusers🧨</a> offered a strong diffusion model training framework
                 for building our code from.
               </p>
             </div>
           </div>
         </div>
-        <!--/ Concurrent Work. -->
+        <!--/ Acknowledgement. -->
   </section>
-
 
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@misc{li2022offline,
-    title={Offline Reinforcement Learning with Closed-Form Policy Improvement Operators},
-    author={Jiachen Li and Edwin Zhang and Ming Yin and Qinxun Bai and Yu-Xiang Wang and William Yang Wang},
-    journal={ICML},
-    year={2023},
-}</code></pre>
+      <pre><code>@misc{li2024rglcd,
+  title={Reward Guided Latent Consistency Distillation},
+  author={Jiachen Li and Weixi Feng and Wenhu Chen and William Yang Wang},
+  journal={ARXIV},
+  year={2024}
+}
+      </code></pre>
     </div>
   </section>
 
